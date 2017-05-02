@@ -71,7 +71,7 @@ EOH
         h[:username] = username unless username.nil?
         h[:password] = password unless password.nil?
         h[:jvm_options] = jvm_options unless jvm_options.nil?
-        h[:remoting] = remoting unless remoting.nil?
+        h[:remoting] = remoting if remoting?
         h[:ssh_user] = ssh_user unless ssh_user.nil?
       end
 
