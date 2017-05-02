@@ -71,6 +71,7 @@ EOH
         h[:username] = username unless username.nil?
         h[:password] = password unless password.nil?
         h[:jvm_options] = jvm_options unless jvm_options.nil?
+        h[:remoting] = remoting unless remoting.nil?
         h[:ssh_user] = ssh_user unless ssh_user.nil?
       end
 
@@ -358,6 +359,16 @@ EOH
     #
     def jvm_options
       node['jenkins']['executor']['jvm_options']
+    end
+
+    #
+    # Boolean to enable legacy remoting flag
+    #
+    # @return [Boolean]
+    #
+    def remoting
+      node['jenkins']['executor']['remoting'].nil? &&
+      node['jenkins']['executor']['remoting']
     end
 
     #
