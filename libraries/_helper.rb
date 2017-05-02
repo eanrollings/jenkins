@@ -71,6 +71,7 @@ EOH
         h[:username] = username unless username.nil?
         h[:password] = password unless password.nil?
         h[:jvm_options] = jvm_options unless jvm_options.nil?
+        h[:ssh_user] = ssh_user unless ssh_user.nil?
       end
 
       Jenkins::Executor.new(options)
@@ -357,6 +358,15 @@ EOH
     #
     def jvm_options
       node['jenkins']['executor']['jvm_options']
+    end
+
+    #
+    # SSH user name to use with ssh protocol
+    #
+    # @return [String]
+    #
+    def ssh_user
+      node['jenkins']['executor']['ssh_user']
     end
 
     #
