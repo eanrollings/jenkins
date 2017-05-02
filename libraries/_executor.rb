@@ -74,6 +74,7 @@ module Jenkins
       command << %(-jar "#{options[:cli]}")
       command << %(-s #{URI.escape(options[:endpoint])}) if options[:endpoint]
       command << %(-i "#{options[:key]}")                if options[:key]
+      command << %(-ssh -user #{options[:ssh_user]})     if options[:ssh_user]
       command << %(-p #{uri_escape(options[:proxy])})    if options[:proxy]
       command.push(pieces)
       command << %(--username "#{options[:username]}")   if options[:username]
