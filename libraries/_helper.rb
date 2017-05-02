@@ -367,7 +367,16 @@ EOH
     # @return [Boolean]
     #
     def remoting
-      node['jenkins']['executor']['remoting'].nil? &&
+      node['jenkins']['executor']['remoting']
+    end
+
+    #
+    # Boolean to enable legacy remoting flag
+    #
+    # @return [Boolean]
+    #
+    def remoting?
+      !node['jenkins']['executor']['remoting'].nil? &&
       node['jenkins']['executor']['remoting']
     end
 
